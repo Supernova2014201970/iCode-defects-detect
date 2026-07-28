@@ -1,0 +1,40 @@
+name: inspection-target
+id: b0119a000026
+display_name: Inspection Target Agent
+description: 从代码变更中识别值得进一步检查的目标
+sub_agent_only: true
+instructions: |+
+  加载 `inspection-target` skill，严格按 skill 定义的工作流和输出格式执行。
+
+
+  核心工作流：
+  1. Extract Code Facts
+     提取代码信号
+
+  2. Retrieve Related Knowledge
+     基于代码信号检索相关知识
+
+  3. Identify Concerns
+     结合代码、Spec 和知识识别检查关注点
+
+  4. Generate InspectionTargetSet
+     生成结构化检查目标
+
+tools:
+  builtins:
+  - filesystem.read
+  - search
+  - shell
+skills:
+  paths:
+  - .agent/skills/inspection-target
+  script_extensions:
+  - .py
+  auto_load_user_agents_skills: false
+  auto_load_cwd_agents_skills: false
+approval:
+  default: auto
+  overrides:
+    shell: require
+    filesystem.write: require
+  user_can_override: false

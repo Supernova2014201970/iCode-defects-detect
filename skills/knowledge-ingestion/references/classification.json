@@ -1,0 +1,360 @@
+
+[
+  {
+    "一级分类 / Primary Category": "编码类 / Coding",
+    "二级分类列表 / Secondary Categories": [
+      {
+        "二级分类 / Secondary Category": "不正确输入校验 / Improper Input Validation (CWE-20)",
+        "三级分类 / Tertiary Categories": [
+          "SQL注入 / SQL Injection",
+          "命令注入 / Command Injection",
+          "路径遍历和等价错误 / Path Traversal and Equivalent Errors",
+          "代码注入 / Code Injection",
+          "资源注入 / Resource Injection",
+          "未受控的格式化字符串 / Uncontrolled Format String",
+          "跨站脚本 / Cross-Site Scripting (XSS)",
+          "缓冲区溢出 / Buffer Overflow",
+          "XML注入 / XML Injection",
+          "系统或配置设置外部可控 / Externally Controlled System or Configuration Settings",
+          "CRLF注入 / CRLF Injection",
+          "日志注入 / Log Injection",
+          "未检查循环条件输入 / Unchecked Input in Loop Conditions",
+          "未正确清理特定内容 / Improper Sanitization of Specific Content",
+          "未控制的内存分配 / Uncontrolled Memory Allocation",
+          "可触发的断言 / Externally Triggerable Assertion"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "数值处理问题 / Numeric Processing Issues (CWE-189)",
+        "三级分类 / Tertiary Categories": [
+          "整数溢出或回绕 / Integer Overflow or Wraparound",
+          "数值类型转换错误 / Numeric Type Conversion Error",
+          "不正确的数组索引验证 / Improper Array Index Validation",
+          "缓冲区大小计算不正确 / Incorrect Buffer Size Calculation",
+          "除0问题 / Divide-by-Zero",
+          "未检查数据的最小值 / Unchecked Minimum Data Value"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "API误用 / API Misuse (CWE-227)",
+        "三级分类 / Tertiary Categories": [
+          "使用内在危险函数 / Use of Inherently Dangerous Functions",
+          "未捕获异常 / Uncaught Exception",
+          "未检查函数返回值 / Unchecked Function Return Value",
+          "函数参数使用不正确 / Incorrect Function Parameter Usage"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "权限控制 / Access Control (CWE-264)",
+        "三级分类 / Tertiary Categories": [
+          "关键资源权限分配不当 / Improper Permission Assignment for Critical Resources"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "时间状态问题 / Time and State Issues (CWE-361)",
+        "三级分类 / Tertiary Categories": [
+          "条件竞争 / Race Condition",
+          "并发环境中使用不可重入函数 / Use of Non-Reentrant Functions in Concurrent Environments",
+          "不正确的锁 / Improper Locking",
+          "不安全临时文件 / Insecure Temporary File"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "信息泄露 / Information Exposure (CWE-200)",
+        "三级分类 / Tertiary Categories": [
+          "敏感信息释放前未清理 / Sensitive Information Not Cleared Before Release",
+          "源代码泄露信息 / Information Exposure Through Source Code",
+          "未按设计文档要求打印敏感信息 / Sensitive Information Logged Contrary to Design Requirements"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "不良代码质量 / Poor Code Quality (CWE-398)",
+        "三级分类 / Tertiary Categories": [
+          "死代码 / Dead Code",
+          "表达式问题 / Expression Issues",
+          "使用潜在危险函数 / Use of Potentially Dangerous Functions",
+          "使用硬编码安全相关常量 / Use of Hard-Coded Security-Relevant Constants",
+          "引用空指针 / Null Pointer Dereference",
+          "双重释放内存 / Double Free",
+          "使用未初始化变量 / Use of Uninitialized Variables",
+          "访问已释放内存 / Use After Free",
+          "释放非堆内存 / Free of Non-Heap Memory",
+          "不正确的资源关闭或释放 / Improper Resource Shutdown or Release",
+          "编程规范违反 / Coding Standard Violation",
+          "工具扫描告警清理 / Tool-Detected Warning Remediation",
+          "其他 / Other",
+          "废弃的代码 / Obsolete Code",
+          "未按设计要求实现 / Implementation Not Conforming to Design Requirements"
+        ],
+        "可扩展三级分类 / Extensible Tertiary Categories": [
+          "编程规范违反 / Coding Standard Violation",
+          "其他 / Other"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "异常管理 / Exception Management (CWE-889)",
+        "三级分类 / Tertiary Categories": [
+          "未正确处理异常 / Improper Exception Handling"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "安全编译 / Secure Compilation",
+        "三级分类 / Tertiary Categories": [
+          "Linux平台用户态二进制必选选项未落地 / Mandatory Security Compilation Options Missing for Linux User-Space Binaries",
+          "Windows平台用户态二进制必选选项未落地 / Mandatory Security Compilation Options Missing for Windows User-Space Binaries",
+          "Android平台后台二进制必选选项未落地 / Mandatory Security Compilation Options Missing for Android Background Binaries",
+          "Linux平台内核态必选选项未落地 / Mandatory Security Compilation Options Missing for Linux Kernel-Space Binaries",
+          "VxWorks平台用户态二进制必选选项未落地 / Mandatory Security Compilation Options Missing for VxWorks User-Space Binaries",
+          "其他平台安全编译选项未落地 / Security Compilation Options Missing for Other Platforms"
+        ]
+      }
+    ]
+  },
+  {
+    "一级分类 / Primary Category": "设计类 / Design",
+    "二级分类列表 / Secondary Categories": [
+      {
+        "二级分类 / Secondary Category": "凭据管理 / Credential Management (CWE-255)",
+        "三级分类 / Tertiary Categories": [
+          "系统中帐号不唯一 / Non-Unique Accounts in the System",
+          "帐号命名规则不符合要求 / Account Naming Rules Do Not Meet Requirements",
+          "存在UID为0的非root帐户 / Non-Root Account with UID 0",
+          "帐户维护功能缺失或不完整 / Missing or Incomplete Account Maintenance Functions",
+          "系统中存在未公开帐号 / Undisclosed Accounts Exist in the System",
+          "未禁用或删除不使用的帐号 / Unused Accounts Not Disabled or Removed",
+          "未检测口令复杂度或口令复杂度低 / Password Complexity Not Enforced or Insufficient",
+          "使用默认口令或未提示修改默认口令 / Use of Default Passwords or Failure to Prompt for Password Change",
+          "硬编码用户名/口令或口令不可修改 / Hard-Coded Username or Password, or Non-Modifiable Password",
+          "修改口令时未验证旧口令或要求再次确认新口令 / Old Password Not Verified or New Password Not Reconfirmed During Password Change",
+          "修改口令时未检测新旧口令是否一致 / New Password Not Checked Against Old Password",
+          "历史口令重复使用 / Reuse of Historical Passwords",
+          "未设置口令有效期 / Password Expiration Not Configured",
+          "口令输入框支持拷出功能 / Password Input Field Allows Copy-Out",
+          "证书管理机制不完善 / Inadequate Certificate Management Mechanism",
+          "口令可使用工具显示 / Password Can Be Revealed Using Tools",
+          "口令复杂度未在服务端校验 / Password Complexity Not Validated on the Server Side",
+          "口令保护未使用安全算法或流程 / Password Protection Does Not Use Secure Algorithms or Processes",
+          "帐号删除后未立即生效 / Account Deletion Does Not Take Effect Immediately",
+          "人机接口客户端长期存储口令 / Long-Term Password Storage in Human-Machine Interface Clients",
+          "使用非标准的华为证书 / Use of Non-Standard Huawei Certificates",
+          "共用认证凭据 / Shared Authentication Credentials"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "认证问题和会话管理 / Authentication and Session Management Issues (CWE-287)",
+        "三级分类 / Tertiary Categories": [
+          "无认证 / Missing Authentication",
+          "存在认证绕过漏洞 / Authentication Bypass Vulnerability",
+          "弱认证或不安全的认证机制 / Weak or Insecure Authentication Mechanism",
+          "客户端认证 / Client-Side Authentication",
+          "未正确实现或使用SSH v2 / Improper Implementation or Use of SSH v2",
+          "提供自动登录或记住密码功能 / Automatic Login or Remember-Password Functionality",
+          "没有防暴力破解机制或防暴力破解机制不合理 / Missing or Inadequate Brute-Force Protection",
+          "简单验证码容易被猜测 / Easily Guessable CAPTCHA",
+          "登录成功或失败提示信息可被攻击者利用 / Login Success or Failure Messages Expose Exploitable Information",
+          "登录成功后未提示历史访问记录 / Historical Access Records Not Displayed After Successful Login",
+          "无重认证机制 / Missing Re-Authentication Mechanism",
+          "无强认证机制 / Missing Strong Authentication Mechanism",
+          "无锁屏机制 / Missing Screen Lock Mechanism",
+          "未使用会话ID机制跟踪会话状态 / Session ID Mechanism Not Used to Track Session State",
+          "会话建立无限制机制 / No Restrictions on Session Establishment",
+          "会话ID不符合随机性要求或长度不足 / Session ID Has Insufficient Randomness or Length",
+          "会话固定或认证后会话ID未更新 / Session Fixation or Session ID Not Updated After Authentication",
+          "服务器未结合会话ID、IP地址及其他会话信息进行身份校验 / Server Does Not Validate Identity Using Session ID, IP Address, and Other Session Information",
+          "未正确使用Cookie / Improper Cookie Usage",
+          "未使用Token对敏感或关键操作进行校验 / Token Not Used to Validate Sensitive or Critical Operations",
+          "未设置Token有效期或有效期过长 / Token Expiration Not Set or Excessively Long",
+          "会话信息未在服务器进行校验 / Session Information Not Validated on the Server Side",
+          "管理员对会话无监控或强制终止功能 / Administrators Cannot Monitor or Force-Terminate Sessions",
+          "会话没有超时机制或未及时清除会话信息 / Missing Session Timeout or Delayed Session Cleanup",
+          "“挑战-应答”或标准认证协议中使用的随机数随机性不足 / Insufficient Randomness in Challenge-Response or Standard Authentication Protocols",
+          "Token不符合随机性要求或长度不足 / Token Has Insufficient Randomness or Length",
+          "明文传输Session ID / Session ID Transmitted in Plaintext",
+          "未严格验证数字证书有效性 / Digital Certificate Validity Not Strictly Verified"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "权限控制 / Access Control (CWE-264)",
+        "三级分类 / Tertiary Categories": [
+          "用户可以增加自己的权限 / Users Can Increase Their Own Privileges",
+          "新建或默认帐户未最小化授权 / New or Default Accounts Are Not Granted Least Privilege",
+          "管理用户和业务用户未区分或权责分配交叉 / Administrative and Business Users Are Not Separated or Have Overlapping Responsibilities",
+          "管理员用户未采用基于角色的帐号权限管理模型 / Administrator Accounts Do Not Use Role-Based Access Control",
+          "目录或文件权限设置不合理或文件放置在不安全目录中 / Improper Directory or File Permissions, or Files Stored in Insecure Directories",
+          "服务器端对上传或下载文件的类型、路径、文件名、大小无限制 / No Server-Side Restrictions on Uploaded or Downloaded File Type, Path, Name, or Size",
+          "存在绕过权限控制的漏洞 / Access Control Bypass Vulnerability",
+          "终端产品应用（如APK）申请了不必要的业务权限 / Terminal Applications Such as APKs Request Unnecessary Business Permissions",
+          "未限制终端类产品应用组件的调用权限 / Invocation Permissions for Terminal Application Components Are Not Restricted",
+          "系统中存在无属主文件 / Ownerless Files Exist in the System",
+          "上传到系统中的文件具有可执行权限 / Uploaded Files Have Executable Permissions",
+          "运行程序的OS帐号拥有远程登录权限 / OS Account Running the Program Has Remote Login Permissions",
+          "采用系统最高权限帐号运行软件程序 / Software Runs Under the Highest-Privilege System Account",
+          "低权限用户的脚本或程序使用高权限帐户执行 / Scripts or Programs of Low-Privilege Users Execute Under High-Privilege Accounts",
+          "非文件属主拥有文件写权限 / Non-Owners Have Write Permission to Files",
+          "普通用户能访问敏感数据或功能 / Regular Users Can Access Sensitive Data or Functions",
+          "连接数据库的帐号是数据库系统最高管理员权限帐号 / Database Connection Account Has Highest Database Administrator Privileges",
+          "未作权限控制或权限控制不合理 / Missing or Improper Access Control",
+          "客户端鉴权 / Client-Side Authorization",
+          "权限变更未及时生效 / Permission Changes Do Not Take Effect Promptly",
+          "未遵循三权分立原则 / Failure to Follow Separation-of-Duties Principles",
+          "未匹配ACL规则或匹配机制不完整 / ACL Rules Not Matched or Matching Mechanism Incomplete",
+          "对解压、删除文件的路径、文件名、大小无限制 / No Restrictions on Path, File Name, or Size for File Extraction or Deletion"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "加密问题 / Cryptographic Issues (CWE-310)",
+        "三级分类 / Tertiary Categories": [
+          "使用私有的、非标准的密码算法 / Use of Proprietary or Non-Standard Cryptographic Algorithms",
+          "使用不安全加密算法 / Use of Insecure Cryptographic Algorithms",
+          "不安全的随机数 / Insecure Random Number Generation",
+          "不安全的算法参数或不安全的参数使用方式 / Insecure Algorithm Parameters or Parameter Usage",
+          "采用私钥加密数据 / Use of Private Keys to Encrypt Data",
+          "没有过滤密码算法或协议中的特殊值 / Special Values in Cryptographic Algorithms or Protocols Not Filtered",
+          "在同时进行加密和签名时对密文签名 / Signing Ciphertext When Encryption and Signing Are Both Performed",
+          "使用不安全的MAC方式 / Use of Insecure MAC Mechanisms",
+          "手动输入的值直接作为密钥使用 / Manually Entered Values Used Directly as Keys",
+          "密钥协商过程没有认证机制 / Missing Authentication in Key Agreement",
+          "密钥用途未做到单一化 / Keys Are Not Restricted to a Single Purpose",
+          "密钥硬编码 / Hard-Coded Keys",
+          "密钥存储或分发过程中未进行完整性保护 / Missing Integrity Protection During Key Storage or Distribution",
+          "密钥不可更新 / Keys Cannot Be Updated",
+          "密钥不提供备份与恢复机制 / Missing Key Backup and Recovery Mechanism",
+          "未立即删除不再使用的密钥 / Unused Keys Not Deleted Immediately",
+          "密钥材料全部硬编码 / All Key Material Is Hard-Coded",
+          "所有产品使用相同密钥（非硬编码） / Same Key Used Across All Products (Non-Hard-Coded)",
+          "密钥未做分层管理或使用根密钥直接加密数据 / No Hierarchical Key Management or Root Keys Used Directly to Encrypt Data"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "信息泄露 / Information Exposure (CWE-200)",
+        "三级分类 / Tertiary Categories": [
+          "输出流中包含敏感数据 / Sensitive Data Included in Output Streams",
+          "敏感信息明文传输 / Sensitive Information Transmitted in Plaintext",
+          "敏感数据明文存储 / Sensitive Data Stored in Plaintext",
+          "会话标识或Token暴露 / Session Identifier or Token Exposure",
+          "存在获取敏感信息的功能或接口 / Functions or Interfaces Allow Retrieval of Sensitive Information",
+          "敏感接口暴露 / Exposure of Sensitive Interfaces",
+          "敏感信息可通过复制或截图方式获取 / Sensitive Information Can Be Obtained Through Copying or Screenshots",
+          "口令回显 / Password Echo",
+          "固件未加密 / Firmware Not Encrypted",
+          "敏感数据弱保护 / Weak Protection of Sensitive Data"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "安全配置 / Security Configuration (CWE-16)",
+        "三级分类 / Tertiary Categories": [
+          "操作系统加固问题 / Operating System Hardening Issues",
+          "数据库加固问题 / Database Hardening Issues",
+          "配置规则不合理 / Improper Configuration Rules",
+          "不支持关闭不安全协议 / Insecure Protocols Cannot Be Disabled",
+          "开启了不必要的端口或服务 / Unnecessary Ports or Services Enabled",
+          "未做到默认安全 / Not Secure by Default",
+          "过时的协议版本 / Outdated Protocol Versions",
+          "端口使用不当 / Improper Port Usage",
+          "冗余安装文件 / Redundant Installation Files",
+          "未做好三面隔离 / Inadequate Three-Plane Isolation",
+          "使用公网IP地址 / Use of Public IP Addresses",
+          "使用不安全的网络协议（FTP/Telnet） / Use of Insecure Network Protocols (FTP/Telnet)",
+          "系统存在开发、编译、调试、网络嗅探或解密类工具或脚本 / Development, Compilation, Debugging, Network Sniffing, or Decryption Tools or Scripts Present in the System",
+          "存在废弃帐号、密码、文件或配置项 / Obsolete Accounts, Passwords, Files, or Configuration Items Exist",
+          "中间件加固问题 / Middleware Hardening Issues",
+          "过时的软件版本 / Outdated Software Versions",
+          "服务没有最小化 / Services Not Minimized",
+          "存在废弃的功能或接口 / Obsolete Functions or Interfaces Exist"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "日志审计 / Logging and Auditing",
+        "三级分类 / Tertiary Categories": [
+          "关键信息未记录日志 / Critical Information Not Logged",
+          "日志信息不够清晰 / Insufficiently Clear Log Information",
+          "日志管理机制不完善 / Inadequate Log Management Mechanism",
+          "日志级别设置不当 / Improper Log Level Configuration"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "完整性保护 / Integrity Protection",
+        "三级分类 / Tertiary Categories": [
+          "未进行完整性保护 / Missing Integrity Protection",
+          "完整性校验机制不完善 / Inadequate Integrity Verification Mechanism",
+          "完整性校验的根证书存储在安装文件中 / Root Certificate for Integrity Verification Stored in Installation Files",
+          "未支持安全启动 / Secure Boot Not Supported"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "硬件安全 / Hardware Security",
+        "三级分类 / Tertiary Categories": [
+          "物理端口没有关闭 / Physical Ports Not Disabled",
+          "存在未使用的物理端口 / Unused Physical Ports Exist",
+          "未删除不使用的硬件 / Unused Hardware Not Removed"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "未公开接口 / Undisclosed Interfaces",
+        "三级分类 / Tertiary Categories": [
+          "存在未公开接口 / Undisclosed Interface Exists"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "其他 / Other",
+        "三级分类 / Tertiary Categories": [
+          "USB口可被利用控制系统 / USB Port Can Be Exploited to Control the System",
+          "调试口可控制设备 / Debug Port Can Control the Device",
+          "启动菜单中包含调试特性 / Boot Menu Contains Debug Features",
+          "存在未公开且带有敏感特性的工具或机制 / Undisclosed Tools or Mechanisms with Sensitive Capabilities Exist",
+          "标准协议存在缺陷 / Defects in Standard Protocols",
+          "无防范DoS攻击的机制或防范机制不健全 / Missing or Inadequate DoS Protection",
+          "未按标准协议实现 / Implementation Does Not Conform to Standard Protocols",
+          "固件未做逆向保护 / Firmware Lacks Reverse-Engineering Protection",
+          "未识别异常分支 / Exceptional Branches Not Identified"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "安全资料 / Security Documentation",
+        "三级分类 / Tertiary Categories": [
+          "通信矩阵遗漏端口 / Communication Matrix Omits Ports",
+          "通信矩阵存在多余端口 / Communication Matrix Contains Redundant Ports",
+          "通信矩阵端口用途描述错误 / Incorrect Port Purpose Description in Communication Matrix",
+          "通信矩阵端口协议描述错误 / Incorrect Port Protocol Description in Communication Matrix",
+          "通信矩阵端口认证方式描述错误 / Incorrect Port Authentication Method Description in Communication Matrix",
+          "通信矩阵端口平面描述错误 / Incorrect Port Plane Description in Communication Matrix",
+          "产品文档缺少必要的功能描述 / Product Documentation Lacks Required Functional Descriptions",
+          "产品文档描述了不存在的产品功能 / Product Documentation Describes Nonexistent Functions",
+          "产品文档缺少必要的操作步骤 / Product Documentation Lacks Required Operation Steps",
+          "产品文档操作步骤描述错误 / Incorrect Operation Steps in Product Documentation",
+          "产品文档遗漏风险提示 / Product Documentation Omits Risk Warnings",
+          "产品文档遗漏对默认口令的说明 / Product Documentation Omits Default Password Information",
+          "产品文档缺少对系统内用户权限的必要说明 / Product Documentation Lacks Required User Permission Information",
+          "产品文档缺少对系统内用户信息的必要说明 / Product Documentation Lacks Required User Information",
+          "产品文档描述的产品默认配置与实际产品配置不符 / Documented Default Product Configuration Does Not Match Actual Configuration",
+          "产品文档描述错误或不规范 / Incorrect or Non-Standard Product Documentation",
+          "产品文档中采用公网IP作为IP地址或样例 / Public IP Addresses Used as Addresses or Examples in Product Documentation",
+          "产品文档暴露受限公开的命令 / Product Documentation Exposes Restricted Commands",
+          "产品界面遗漏风险提示 / Product Interface Omits Risk Warnings",
+          "产品资料描述存在不一致 / Inconsistent Descriptions Across Product Documentation"
+        ]
+      },
+      {
+        "二级分类 / Secondary Category": "隐私保护 / Privacy Protection",
+        "三级分类 / Tertiary Categories": [
+          "未提供隐私声明、隐私声明不完整，或个人数据收集范围、处理目的超出隐私声明范围 / Privacy Notice Missing or Incomplete, or Personal Data Collection Scope or Processing Purpose Exceeds the Notice",
+          "未得到用户授权或违法违规收集、处理用户个人数据 / Personal Data Collected or Processed Without User Authorization or in Violation of Laws or Regulations",
+          "未提供个人数据说明或个人数据说明不完整 / Personal Data Description Missing or Incomplete",
+          "未提供或告知撤销同意机制 / Mechanism for Withdrawing Consent Not Provided or Communicated",
+          "个人数据收集范围或处理目的超出提供服务所需范围 / Personal Data Collection Scope or Processing Purpose Exceeds What Is Necessary for Service Delivery",
+          "B/S系统中使用GET方式提交个人数据 / Personal Data Submitted via GET in B/S Systems",
+          "用户个人数据未定义存留期、存留期设置不合理，或未提供到期数据删除机制 / Personal Data Retention Period Undefined or Unreasonable, or Expired Data Deletion Mechanism Missing",
+          "设备维修、销毁或云资源回收场景下，未提供安全删除机制或指导 / Secure Deletion Mechanism or Guidance Missing for Device Maintenance, Disposal, or Cloud Resource Reclamation",
+          "未对用户同意和撤销同意行为进行记录 / User Consent and Withdrawal Actions Not Recorded",
+          "未保证数据主体权利 / Data Subject Rights Not Guaranteed",
+          "系统未将隐私保护功能默认设置为保护状态 / Privacy Protection Functions Not Enabled by Default",
+          "未对个人数据提供适当的保护机制 / Inadequate Protection Mechanism for Personal Data",
+          "未获得用户同意修改用户个人空间 / User Personal Space Modified Without Consent",
+          "非基本功能类应用不可卸载 / Non-Essential Applications Cannot Be Uninstalled",
+          "个人数据非法跨境转移 / Illegal Cross-Border Transfer of Personal Data",
+          "隐私通知方式不符合管理规定 / Privacy Notification Method Does Not Comply with Management Requirements"
+        ]
+      }
+    ]
+  }
+]
