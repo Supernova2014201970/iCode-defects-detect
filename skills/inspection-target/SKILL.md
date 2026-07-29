@@ -118,12 +118,11 @@ cryptoutil.decryptv2(cipherText)
 
 知识存储路径：
 
-`knowledge_path`:`storage_path`/knowledge
-
-`storage_path`:
-Linux：`$HOME/chrys/co-review`
-windows：`%APPDATA%\chrys\co-review`
-
+`knowledge_path` :
+```text
+Linux：`$HOME/chrys/co-review/knowledge`
+windows：`%APPDATA%\chrys\co-review\knowledge`
+```
 
 
 每个 JSON 文件包含多个 Knowledge Item。

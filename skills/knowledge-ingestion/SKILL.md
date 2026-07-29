@@ -638,7 +638,6 @@ status = draft
 
 # 存储目录
 
-`storage_path`:
 Linux：`$HOME/chrys/co-review`
 windows：`%APPDATA%\chrys\co-review`
 
@@ -647,16 +646,11 @@ windows：`%APPDATA%\chrys\co-review`
 
 knowledge 使用 JSON 保存。
 
-目录：
-
-```text
-`storage_path`/knowledge/
-```
-
 文件：
 
 ```text
-`storage_path`/knowledge/<concern_slug>.json
+Linux：`$HOME/chrys/co-review/knowledge/<concern_slug>.json`
+windows：`%APPDATA%\chrys\co-review\knowledge\<concern_slug>.json`
 ```
 
 同一个 `concern_slug` 只允许一个 knowledge JSON 文件。
@@ -717,7 +711,8 @@ ability 使用 skill 保存。
 目录：
 
 ```text
-`storage_path`/ability/<ability_skill_name>/
+Linux：`$HOME/chrys/co-review/ability/<ability_skill_name>/`
+windows：`%APPDATA%\chrys\co-review\ability\<ability_skill_name>\`
 ```
 
 `ability_skill_name` 根据 concern 命名规则生成。
@@ -731,7 +726,7 @@ ability 使用 skill 保存。
 ```text
 derive ability_skill_name from concern
     ↓
-search `storage_path`/ability/<ability_skill_name>/
+search
     ↓
 not exists
     ↓
@@ -873,7 +868,8 @@ knowledge 收敛后：
 2. 写入或追加：
 
 ```text
-`storage_path`/knowledge/<concern_slug>.json
+Linux：`$HOME/chrys/co-review/knowledge/<concern_slug>.json`
+windows：`%APPDATA%\chrys\co-review\knowledge\<concern_slug>.json`
 ```
 
 3. 已有文件时只追加新 item。

@@ -1,7 +1,7 @@
 name: knowledge-ingestion
 id: b0119a000027
 display_name: Knowledge Ingestion Agent
-description: 将用户提供的检视经验结构化入库：判断价值→区分知识/能力→追问澄清→落盘到 evo/knowledge 和 evo/ability
+description: 将用户提供的检视经验结构化入库：判断价值→区分知识/能力→追问澄清→落盘到 `knowledge_path` 和 `ability_path`
 sub_agent_only: true
 instructions: |-
   加载 `knowledge-ingestion` skill。按该 skill 的工作流执行：
@@ -11,8 +11,8 @@ instructions: |-
   3. 区分 knowledge 或 ability
   4. 分配 concern 分类（按 references/classification.json）
   5. 如果信息不足，最多 5 轮追问，每轮 1 个问题
-  6. 知识写入 evo/knowledge/<concern_slug>.json
-  7. 能力创建或融合 evo/ability/<concern_slug>/SKILL.md
+  6. 知识写入  `knowledge_path` /<concern_slug>.json
+  7. 能力创建或融合 `ability_path`/<concern_slug>/SKILL.md
 
   参考文件位于 skill 目录下的 references/：
   - classification.json

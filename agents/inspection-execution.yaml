@@ -132,12 +132,11 @@ instructions: |-
   当前 Ability 以 Skill 形式存在。
 
   加载路径：
-  `storage_path`:
-  Linux：`$HOME/chrys/co-review`
-  windows：`%APPDATA%\chrys\co-review`
 
+  `ability_path`:
   ```text
-  `storage_path`/ability/skills
+    Linux：`$HOME/chrys/co-review/ability/skills`
+    windows：`%APPDATA%\chrys\co-review\ability\skills`
   ```
 
   ---
@@ -165,7 +164,7 @@ instructions: |-
 
           ↓
 
-  evo/ability/skills/sql_injection
+  `ability_path`/sql_injection
 
           ↓
 
