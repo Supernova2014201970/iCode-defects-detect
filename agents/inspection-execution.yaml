@@ -21,10 +21,6 @@ instructions: |-
 
           ↓
 
-  Load Related Knowledge
-
-          ↓
-
   Combine Feedback Context
 
           ↓
@@ -136,9 +132,12 @@ instructions: |-
   当前 Ability 以 Skill 形式存在。
 
   加载路径：
+  `storage_path`:
+  Linux：`$HOME/chrys/co-review`
+  windows：`%APPDATA%\chrys\co-review`
 
   ```text
-  evo/ability/skills
+  `storage_path`/ability/skills
   ```
 
   ---
@@ -193,101 +192,13 @@ instructions: |-
 
   ---
 
-  # 2. Load Inspection Knowledge
-
-  ## Source
-
-  检查知识统一存放于：
+  # 2. Inspection Knowledge
+  
+  知识来自于：
 
   ```text
-  evo/knowledge
+  InspectionExecutionTask.inspection_target.related_knowledge
   ```
-
-  ---
-
-  ## Knowledge Matching
-
-  根据：
-
-  ```text
-  InspectionTarget.inspect_classification
-  ```
-
-  定位对应知识文件：
-
-  ```text
-  evo/knowledge/<inspect_classification>.json
-  ```
-
-  例如：
-
-  ```text
-  inspect_classification:
-
-  sql_injection
-
-
-  ↓
-
-  evo/knowledge/sql_injection.json
-  ```
-
-  ---
-
-  ## Knowledge Filtering
-
-  知识文件中包含多个知识条目：
-
-  筛选`used_for`包含'problem_checking'的条目
-
-  仅加载以下的知识字段
-
-  ```json
-  {
-    "summary": "",
-    "applicable_scenarios": [],
-    "problem_checking": "",
-    "status": "",
-    "precision": "",
-    "scope": "",
-    "review_effect": ""
-  }
-  ```
-
-  流程：
-
-  ```text
-  Knowledge File
-
-          ↓
-
-  Read Items
-
-          ↓
-
-  Filter:
-
-  used_for includes problem_checking
-
-          ↓
-
-  Load Inspection Knowledge
-  ```
-
-  ---
-
-  ## Knowledge Usage
-
-  加载后的知识用于：
-
-  * 补充检查规则；
-  * 提供业务语义；
-  * 提供安全控制信息；
-  * 辅助判断检查结果。
-
-  注意：
-
-  检查知识是分析依据，不直接生成检查结论。
 
   ---
 
@@ -407,7 +318,6 @@ instructions: |-
 
   ```json
   {
-    "status": "",
     "inspect_classification": "",
     "description": "",
     "evidence": [],
@@ -425,37 +335,10 @@ instructions: |-
   {
     "inspection_result": {
       "inspection_target": {},
-      "status": "",
       "findings": []
     }
   }
   ```
-
-  状态：
-
-  ```text
-  confirmed
-  ```
-
-  确认存在问题。
-
-  ```text
-  not_found
-  ```
-
-  未发现问题。
-
-  ```text
-  uncertain
-  ```
-
-  信息不足，无法确认。
-
-  ```text
-  failed
-  ```
-
-  检查执行失败。
 
   ---
 

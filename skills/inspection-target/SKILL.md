@@ -23,7 +23,7 @@ description: |
 # Workflow
 
 ```text
-Code Change (patch / diff)
+Code Change (patch / diff) + 用户的反馈
 
         ↓
 
@@ -38,7 +38,7 @@ Code Change (patch / diff)
         ↓
 
 3. Identify Concerns
-   根据代码信号、Spec 和知识识别检查关注点
+   根据代码信号、Spec 用户的反馈、和知识识别检查关注点
 
         ↓
 
@@ -110,39 +110,23 @@ cryptoutil.decryptv2(cipherText)
 
 ## Purpose
 
-根据 Code Facts 从 `evo/knowledge` 中检索与当前代码相关的检查知识。
+根据 Code Facts 从 `knowledge_path` 中检索与当前代码相关的检查知识。
+
 
 ## Knowledge Source
 
+
 知识存储路径：
 
-```text
-evo/knowledge
-```
+`knowledge_path`:`storage_path`/knowledge
+
+`storage_path`:
+Linux：`$HOME/chrys/co-review`
+windows：`%APPDATA%\chrys\co-review`
+
+
 
 每个 JSON 文件包含多个 Knowledge Item。
-
----
-
-## Knowledge Filtering
-
-首先过滤 Knowledge Item：
-
-仅保留：
-
-```text
-used_for contains "target_discovery"
-```
-
-的知识。
-
-其他用途的知识：
-
-```text
-problem_checking
-```
-
-不参与 Target Discovery。
 
 ---
 
@@ -299,6 +283,7 @@ InspectionTarget.related_knowledge
 * Code Facts；
 * 用户提供 Spec；
 * Retrieved Knowledge；
+* 用户反馈信息
 
 生成最终检查目标。检查目标是基于代码特征、上下文信息和知识经验识别出的潜在风险点。仅当存在合理风险依据时，才生成对应检查目标，并交由后续检查流程验证。
 
@@ -314,6 +299,10 @@ User Spec
 +
 
 Related Knowledge
+
++
+
+User Feedback
 
         ↓
 
@@ -379,9 +368,6 @@ references/Concern-Classification.md
 
 * concrete_inspect 必须严格匹配 concern_classification 的检查范围，仅描述该分类下需要关注的具体问题。禁止为了丰富描述而引入无关风险信息，避免一个检查目标混合多个不同类型的检查内容。
 
----
-
-## concrete_inspect
 
 描述：
 
@@ -392,6 +378,8 @@ references/Concern-Classification.md
 * Code Facts；
 * 用户 Spec；
 * Related Knowledge。
+* 用户反馈
+
 
 要求：
 
@@ -429,7 +417,6 @@ references/Concern-Classification.md
 {
   "summary": "",
   "applicable_scenarios": [],
-  "target_discovery": "",
   "status": "",
   "precision": "",
   "scope": "",
@@ -469,13 +456,7 @@ InspectionTarget
 related_knowledge
 ```
 
-必须来自：
-
-```text
-evo/knowledge
-```
-
-检索结果。
+必须来自：`knowledge_path`检索结果。
 
 禁止：
 
@@ -498,6 +479,10 @@ Knowledge
 +
 
 Spec
+
++
+
+用户反馈
 ```
 
 避免无依据生成检查目标。

@@ -30,11 +30,8 @@ tools:
   - sleep
   - doc_converter
 skills:
-  paths:
-  - .agent/skills/knowledge-ingestion
   script_extensions:
   - .py
-  auto_load_user_agents_skills: false
   auto_load_cwd_agents_skills: false
 approval:
   default: auto

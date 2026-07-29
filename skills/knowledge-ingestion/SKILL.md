@@ -636,25 +636,32 @@ status = draft
 
 ---
 
-# Knowledge Storage
+# 存储目录
+
+`storage_path`:
+Linux：`$HOME/chrys/co-review`
+windows：`%APPDATA%\chrys\co-review`
+
+## Knowledge Storage
+
 
 knowledge 使用 JSON 保存。
 
 目录：
 
 ```text
-evo/knowledge/
+`storage_path`/knowledge/
 ```
 
 文件：
 
 ```text
-evo/knowledge/<concern_slug>.json
+`storage_path`/knowledge/<concern_slug>.json
 ```
 
 同一个 `concern_slug` 只允许一个 knowledge JSON 文件。
 
-## knowledge_id
+### knowledge_id
 
 每条 knowledge 创建独立 ID：
 
@@ -672,7 +679,7 @@ knowledge.<concern_slug>.<short_semantic_name>
 * 能区分同 concern 下的其他 knowledge
 * 不使用无意义序号作为主要名称
 
-## Append
+### Append
 
 如果对应 JSON 已存在：
 
@@ -703,14 +710,14 @@ references/InspectionKnowledge.md
 
 ---
 
-# Ability Storage
+## Ability Storage
 
 ability 使用 skill 保存。
 
 目录：
 
 ```text
-evo/ability/<ability_skill_name>/
+`storage_path`/ability/<ability_skill_name>/
 ```
 
 `ability_skill_name` 根据 concern 命名规则生成。
@@ -724,7 +731,7 @@ evo/ability/<ability_skill_name>/
 ```text
 derive ability_skill_name from concern
     ↓
-search evo/ability/<ability_skill_name>/
+search `storage_path`/ability/<ability_skill_name>/
     ↓
 not exists
     ↓
@@ -866,7 +873,7 @@ knowledge 收敛后：
 2. 写入或追加：
 
 ```text
-evo/knowledge/<concern_slug>.json
+`storage_path`/knowledge/<concern_slug>.json
 ```
 
 3. 已有文件时只追加新 item。
