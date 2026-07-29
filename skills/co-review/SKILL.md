@@ -6,7 +6,7 @@ description: |
   必须首先通过 `ask_user` 工具询问用户选择模式：
 
   - 普通 Review
-  - Co-Review 模式
+  - Co-Review 模式：交互式反馈、经验沉淀和检查能力演进
   
   如果用户选择“普通 Review”，则不启用本 Skill，由普通代码检视流程处理。
   
