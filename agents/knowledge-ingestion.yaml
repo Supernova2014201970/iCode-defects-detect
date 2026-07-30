@@ -29,13 +29,12 @@ tools:
   - ask_user
   - sleep
   - doc_converter
+  - todo
 skills:
   script_extensions:
   - .py
   auto_load_cwd_agents_skills: false
 approval:
-  default: auto
   overrides:
     shell: require
     filesystem.write: require
-  user_can_override: false

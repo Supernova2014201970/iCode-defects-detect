@@ -27,16 +27,6 @@
 {
   "InspectionKnowledgeSet": {
     "schema_version": "1.0",
-    "concern": {
-      "primary_category": "",
-      "secondary_category": "",
-      "tertiary_category": "",
-      "custom_extension": null,
-      "priority_group": "",
-      "is_extensible": false,
-      "logical_name": "",
-      "slug": ""
-    },
     "items": [
       {
         "id": "knowledge.<concern_slug>.<short_semantic_name>",
@@ -84,35 +74,171 @@
 
 
 # Anchor 提取规则
-从知识中提取最能代表检查对象的标识符，保存为 core。
 
-core.symbol 默认进行完整标识符匹配，禁止前缀或子串匹配。例如 decrypt 不匹配 decryptv2。
+从知识中提取能够触发风险识别的关键代码标识符，保存为 `core`。
 
-core.kind 是必填枚举字段，用于限定代码节点类型。当前枚举值：
-call：函数或方法调用
-field：字段或属性访问
-type：类型使用
-config：配置项
-annotation：注解或装饰器
-literal：字符串或数值字面量
+`core` 表示：
 
-模块名、类名、对象名等辅助标识符保存到 contex。它们不独立触发召回，只作为上下文交给模型判断。
+> 看到该代码特征时，系统应联想到该知识，并进一步判断是否存在问题。
 
-命中 core 只代表召回相关知识，不代表代码已经构成问题。模型必须结合 context、完整代码和知识语义进行最终判断。
+因此，`core` 应选择**当前存在问题的代码对象**，而不是目标修复后的代码对象。
 
-无法确定代码节点类型时，不得臆造 kind；应先澄清，或将知识限制为低置信语义提示。
+例如：
 
-示例
 用户知识：
-cryptoutil.decrypt 是旧接口，不应继续使用，项目要求统一迁移到 cryptoutil.decryptv2。
+
+```text
+CryptoUtil.decrypt 不应该继续使用，这是旧接口。
+项目要求统一迁移到 CryptoUtil.decryptV2。
+````
+
+风险触发点是：
+
+```text
+CryptoUtil.decrypt
+```
+
+因此：
+
+```json
+{
+  "symbol": "decrypt",
+  "kind": "call"
+}
+```
+
+而不是：
+
+```json
+{
+  "symbol": "decryptV2",
+  "kind": "call"
+}
+```
+
+因为：
+
+* `decrypt` 是需要被识别的问题点；
+* `decryptV2` 是正确使用方式，不应触发该知识。
+
+---
+
+## Core 匹配规则
+
+`core.symbol` 默认采用完整标识符匹配。
+
+禁止：
+
+* 前缀匹配；
+* 子串匹配；
+* 模糊匹配。
+
+例如：
+
+```text
+decrypt
+
+匹配：
+
+decrypt()
+
+不匹配：
+
+decryptV2()
+decryptLegacy()
+```
+
+---
+
+## Core Kind
+
+`core.kind` 为必填字段，用于限定代码节点类型。
+
+支持枚举：
+
+| kind         | 描述        |
+| ------------ | --------- |
+| `call`       | 函数或方法调用   |
+| `field`      | 字段或属性访问   |
+| `type`       | 类型使用      |
+| `config`     | 配置项       |
+| `annotation` | 注解或装饰器    |
+| `literal`    | 字符串或数值字面量 |
+
+---
+
+## Context 提取规则
+
+模块名、类名、对象名等辅助标识符保存到 `context`。
+
+`context`：
+
+* 不独立触发知识召回；
+* 不作为风险判断依据；
+* 仅用于辅助模型理解代码语义和判断匹配准确性。
+
+例如：
+
+```text
+cryptoutil.decrypt()
+```
+
+其中：
+
+```json
+{
+  "core": {
+    "symbol": "decrypt",
+    "kind": "call"
+  },
+  "context": {
+    "symbol": "cryptoutil",
+    "kind": "type"
+  }
+}
+```
+
+---
+
+## 判断原则
+
+命中 `core`：
+
+仅表示：
+
+> 该代码可能与该知识相关，需要进一步检查。
+
+不表示：
+
+> 代码已经构成问题。
+
+最终判断必须结合：
+
+* `core` 匹配结果；
+* `context` 信息；
+* 完整代码上下文；
+* 知识语义。
+
+---
+
+## 示例
+
+用户知识：
+
+```text
+cryptoutil.decrypt 是旧接口，不应继续使用，
+项目要求统一迁移到 cryptoutil.decryptv2。
+```
 
 抽取结果：
+
+```json
 {
   "anchors": {
     "codesignals": {
       "core": [
         {
-          "symbol": "decryptv2",
+          "symbol": "decrypt",
           "kind": "call"
         }
       ],
@@ -125,3 +251,4 @@ cryptoutil.decrypt 是旧接口，不应继续使用，项目要求统一迁移�
     }
   }
 }
+```

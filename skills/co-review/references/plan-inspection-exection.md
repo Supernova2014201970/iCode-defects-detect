@@ -73,10 +73,12 @@ InspectionTarget.concern_classification
 在：
 
 ```text
-workspace/skills
+Linux：`$HOME/chrys/co-review/ability/skills`
+windows：`%APPDATA%\chrys\co-review\ability\skills`
 ```
 
 目录下按照 Skill 名称进行匹配。
+
 
 匹配规则：
 
@@ -391,10 +393,47 @@ user_feedback_context == null
 * 不生成 `InspectionExecutionPlan`；
 * 不启动 `inspection-execution` Agent。
 
-向用户说明：
+完成内部路由判断后，不得输出任何中间决策过程。
+
+
+# 输出限制
+
+禁止输出**任何**匹配、路由判断、路由决策等中间信息给用户，用户无需感知中间过程，只需感知结果即可
+
+禁止输出：
+
+- Ability 是否匹配；
+- Skill 是否存在；
+- Knowledge 是否为空；
+- Routing Rules 判断；
+- Target 逐项决策；
+- Skip Inspection 原因；
+- ExecutionPlan 生成过程。
+
+例如禁止：
 
 ```text
-当前代码自演进能力未识别到需要进一步检查的项。
+没有匹配的 ability skill。
+
+Target 1:
+ability == null ...
+→ Skip Inspection
+
+Target 2:
+ability == null ...
+→ Skip Inspection
+
+所有检查目标均满足 Skip 条件。
+```
+
+这些内容仅用于内部执行，不属于用户检视结果。
+
+当没有可执行检查项时，直接输出：
+
+```text
+当前代码自演进能力未识别到需要进一步检查的风险项。
+
+以上是本次检视结果。如果存在误报、漏报，或者需要补充业务背景和信息，可以继续反馈，我会根据反馈重新检查。
 ```
 
 ---

@@ -192,7 +192,7 @@ instructions: |-
   ---
 
   # 2. Inspection Knowledge
-  
+
   知识来自于：
 
   ```text
@@ -393,16 +393,15 @@ tools:
   - shell
   - sleep
   - doc_converter
+  - todo
 skills:
   script_extensions:
   - .py
   auto_load_user_agents_skills: false
   auto_load_cwd_agents_skills: false
-sub_agents:
-  max_total_concurrency: 10
 approval:
-  default: auto
   overrides:
     shell: require
     filesystem.write: require
-  user_can_override: false
+sub_agents:
+  max_total_concurrency: 10

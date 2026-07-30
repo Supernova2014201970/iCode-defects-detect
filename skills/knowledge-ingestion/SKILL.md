@@ -121,6 +121,7 @@ output_processing_result()
 * 每个 item 独立判断价值、类型、concern 和完整性。
 * 每次获得用户新输入后，先合并到当前 item。
 * 合并后重新执行 `ValueGate`、类型判断、concern 分类和 Verification Gate。
+* 使用 `ask_user` 工具 向用户提问，补充信息
 * 信息不足时，一次只向用户询问一个问题。
 * 当前 item 收敛后，再处理下一个 item。
 * 只追问会改变后续检视消费方式的信息。
@@ -143,8 +144,8 @@ output_processing_result()
 * 为了字段完整而追问。
 * 要求用户补充与后续检视无关的信息。
 * 向用户展示未整理完成的 `InspectionKnowledge`。
-* 向用户展示完整 `ClarificationQuestionSet`。
-* 向用户展示 `ClarificationQuestion` 内部报文。
+* 向用户展示或落盘 `ClarificationQuestionSet`。
+* 向用户展示或落盘 `ClarificationQuestion` 内部报文。
 * 一次询问多个问题。
 * 机械执行预先生成的问题列表。
 * 将 Agent 自己的猜测包装成选项诱导用户确认。
@@ -530,6 +531,8 @@ then ask question 3
 
 必须根据用户每次回答动态重新规划。
 
+使用 `ask_user` 工具 向用户提问
+
 ## Clarification Priority
 
 生成 QuestionSet 时优先考虑：
@@ -619,7 +622,7 @@ status = draft
 5. 以上都不符合，我补充具体情况
 ```
 
-不得向用户输出：
+不得向用户输出或落盘：
 
 * `ClarificationQuestionSet`
 * `ClarificationQuestion`
@@ -637,9 +640,6 @@ status = draft
 ---
 
 # 存储目录
-
-Linux：`$HOME/chrys/co-review`
-windows：`%APPDATA%\chrys\co-review`
 
 ## Knowledge Storage
 
