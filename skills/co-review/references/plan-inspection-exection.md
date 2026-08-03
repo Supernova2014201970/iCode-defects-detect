@@ -203,7 +203,7 @@ ability:
 
 ---
 
-## Case 3: No Matching Ability and No Related Knowledge but Has User Feedback
+## Case 3: No Matching Ability and No Related Knowledge
 
 条件：
 
@@ -214,9 +214,6 @@ AND
 
 InspectionTarget.related_knowledge == empty
 
-AND
-
-user_feedback_context != null
 ```
 
 决策：
@@ -236,39 +233,8 @@ ability:
 
 * 当前没有专用检查能力；
 * 没有已有检查知识；
-* 但用户提供了额外检查上下文；
-* 使用通用检查能力，并结合用户反馈执行检查。
-
----
-
-## Case 4: No Execution Context
-
-条件：
-
-```text
-ability == null
-
-AND
-
-InspectionTarget.related_knowledge == empty
-
-AND
-
-user_feedback_context == null
-```
-
-决策：
-
-```text
-Skip Inspection
-```
-
-说明：
-
-* 当前检查目标没有可用检查能力；
-* 没有相关知识；
-* 没有用户补充信息；
-* 不允许模型自行推测检查逻辑。
+* 若存在用户反馈，结合用户反馈执行检查，使用通用检查能力，
+* 若不存在用户反馈，使用通用检查能力，
 
 ---
 
@@ -367,34 +333,6 @@ SafeSQLBuilder 已完成参数化处理，不应报告 SQL Injection
 
 ---
 
-# Skip Handling
-
-如果某个 `InspectionTarget` 满足：
-
-```text
-ability == null
-
-AND
-
-related_knowledge == empty
-
-AND
-
-user_feedback_context == null
-```
-
-则：
-
-* 不生成对应 `InspectionExecutionTask`；
-* 不启动 `inspection-execution` Agent。
-
-如果所有 `InspectionTarget` 均满足上述条件：
-
-* 不生成 `InspectionExecutionPlan`；
-* 不启动 `inspection-execution` Agent。
-
-完成内部路由判断后，不得输出任何中间决策过程。
-
 
 # 输出限制
 
@@ -409,22 +347,6 @@ user_feedback_context == null
 - Target 逐项决策；
 - Skip Inspection 原因；
 - ExecutionPlan 生成过程。
-
-例如禁止：
-
-```text
-没有匹配的 ability skill。
-
-Target 1:
-ability == null ...
-→ Skip Inspection
-
-Target 2:
-ability == null ...
-→ Skip Inspection
-
-所有检查目标均满足 Skip 条件。
-```
 
 这些内容仅用于内部执行，不属于用户检视结果。
 
